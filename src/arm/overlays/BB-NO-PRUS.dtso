@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (C) 2026 Stuart Longland <me@vk4msl.com>
+ * Copyright (C) 2015 Robert Nelson <robertcnelson@gmail.com>
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/am33xx.h>
+#include <dt-bindings/gpio/gpio.h>
+
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+	overlays {
+		BB-NO-PRUS.kernel = __TIMESTAMP__;
+	};
+};
+
+/* Disable PRUSS in the device tree */
+&pruss_tm {
+	status = "disabled";
+};
+
+&pru0 {
+	status = "disabled";
+};
+
+&pru1 {
+	status = "disabled";
+};
